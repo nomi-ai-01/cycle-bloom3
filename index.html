@@ -1,8 +1,8 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#FFF9F4"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg"><link rel="apple-touch-icon" href="icon.svg"><title>Cycle Bloom</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#FFF6F9"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg"><link rel="apple-touch-icon" href="icon.svg"><title>Cycle Bloom</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FFF9F4;--bg2:#FBE6E6;--card:#fff;--inp:#fff;--ink:#3B2530;--mut:#6B545C;--rose:#CC4A6E;--rt:#B03358;--fill:#C23A62;--rose2:#F4B9C5;--soft:#FCEBEE;--sage:#3E8A77;--bd:#EBD3D8;--ibd:#C9A3AD;--al-bg:#FDE7E5;--al-bd:#D93025;--al-tx:#A31D14;--err:#B3261E;--sh:0 8px 30px rgba(217,96,122,.10)}
-body[data-t=dark]{color-scheme:dark;--bg:#160F12;--bg2:#221419;--card:#2F2229;--inp:#1C1217;--ink:#FFF5F8;--mut:#DCC6CD;--rt:#FF9DB3;--soft:#4A2E3A;--bd:#533C47;--ibd:#86626F;--sage:#6FCFB8;--al-bg:#4A1A1E;--al-bd:#FF6B5E;--al-tx:#FFD9D5;--err:#FF8A80;--sh:0 8px 30px rgba(0,0,0,.35)}
+:root{--bg:#FFF6F9;--bg2:#F3E7F6;--card:#fff;--inp:#fff;--ink:#3A2434;--mut:#6E5566;--rose:#D4588A;--rt:#A82F66;--fill:#BE3D78;--rose2:#F2B5D2;--soft:#FBE8F1;--sage:#8F6FD1;--bd:#EED8E6;--ibd:#CDA6BE;--al-bg:#FDE7E5;--al-bd:#D93025;--al-tx:#A31D14;--err:#B3261E;--sh:0 8px 30px rgba(190,61,120,.12)}
+body[data-t=dark]{color-scheme:dark;--bg:#170F18;--bg2:#26172A;--card:#2F2033;--inp:#1E1322;--ink:#FFF6FA;--mut:#E0CCDB;--rose:#E0679A;--rt:#FF9FC6;--soft:#4A2D4F;--bd:#55395C;--ibd:#8A6491;--sage:#C3A6F2;--al-bg:#4A1A1E;--al-bd:#FF6B5E;--al-tx:#FFD9D5;--err:#FF8A80;--sh:0 8px 30px rgba(0,0,0,.35)}
 body[data-t=light]{color-scheme:light}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;font-family:"DM Sans",system-ui,sans-serif;color:var(--ink);background:linear-gradient(160deg,var(--bg),var(--bg2));background-attachment:fixed;min-height:100vh;padding-bottom:92px}
@@ -14,7 +14,7 @@ small,.eb{color:var(--rt);font-size:12px;font-weight:700;letter-spacing:.08em}.m
 .card{background:var(--card);border:1px solid var(--bd);border-radius:24px;padding:18px;margin:14px 0;box-shadow:var(--sh)}
 button,input,select,textarea{font:inherit;color:inherit}
 button{border:0;border-radius:999px;padding:14px 18px;background:var(--soft);cursor:pointer;width:100%;margin-top:10px;font-weight:600}
-button.p{background:linear-gradient(135deg,#B03358,#CC4A6E);color:#fff;box-shadow:0 6px 18px rgba(217,96,122,.35)}button.d{background:#C0392B;color:#fff}button.q{background:transparent;color:var(--mut)}
+button.p{background:linear-gradient(135deg,#B3306E,#D0508F);color:#fff;box-shadow:0 6px 18px rgba(217,96,122,.35)}button.d{background:#C0392B;color:#fff}button.q{background:transparent;color:var(--mut)}
 .round{width:42px;height:42px;padding:0;margin:0;display:inline-flex;align-items:center;justify-content:center}
 input,select,textarea{width:100%;padding:13px 14px;border-radius:14px;border:1.5px solid var(--ibd);background:var(--inp);margin:6px 0 12px}
 body.ur input[type=number],body.ur input[type=time],body.ur input[type=date],body.ur input[type=password]{font-family:"DM Sans",system-ui,sans-serif}
@@ -75,7 +75,7 @@ function nextP(){const s=last();return s?add(s,avg()):null}
 function phk(){const s=last();if(!s)return"";const d=diff(s,today())+1,l=avg();return d<=S.per?"ph1":d>=l-16&&d<=l-12?"ph2":d<l-16?"ph3":"ph4"}
 function sha(s){return window.crypto&&crypto.subtle?crypto.subtle.digest("SHA-256",new TextEncoder().encode(s)).then(h=>[...new Uint8Array(h)].map(x=>x.toString(16).padStart(2,"0")).join("")):Promise.resolve("f"+s)}
 const IC={home:'<path d="M3 11l9-8 9 8M5 10v10h14V10"/>',cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',log:'<path d="M4 20l4-1 11-11-3-3L5 16z"/>',ins:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',set:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>'};
-function theme(){const x=S.theme==="auto"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):S.theme;document.body.dataset.t=x;const m=document.querySelector("meta[name=theme-color]");if(m)m.content=x==="dark"?"#160F12":"#FFF9F4"}
+function theme(){const x=S.theme==="auto"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):S.theme;document.body.dataset.t=x;const m=document.querySelector("meta[name=theme-color]");if(m)m.content=x==="dark"?"#170F18":"#FFF6F9"}
 function toggleTheme(){S.theme=document.body.dataset.t==="dark"?"light":"dark";save();theme()}
 function ui(){document.body.classList.toggle("ur",S.lang==="ur");document.documentElement.dir=S.lang==="ur"?"rtl":"ltr";theme();
 $("#lh").textContent=t("wb");$("#lt").textContent=t("ent4");$("#ub").textContent=t("unl");$("#fb").textContent=t("fg");
